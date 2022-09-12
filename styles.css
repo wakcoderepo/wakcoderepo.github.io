@@ -6,6 +6,11 @@
 	padding: 0;
 }
 
+:root {
+	--light-blue: rgb(248, 253, 255);
+	--pine-tree: #292E1E;
+}
+
 html {
 	/* 1rem = 10px, 62.5% of 16px browser font size is 10px*/
 	font-size: 62.5%;
@@ -14,7 +19,8 @@ html {
 body {
 	/* 16px */
 	font-size: 1.6rem;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
+	color: var(--pine-tree);
 }
 
 header {
@@ -29,7 +35,12 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	height: 6rem;
+	height: 5.4rem;
+	background-color: var(--light-blue);
+}
+
+.logo {
+	padding-left: 9rem;
 }
 
 nav ul {
@@ -38,18 +49,19 @@ nav ul {
 }
 
 nav ul li {
-	padding: 2rem;
+	padding: 0 6rem;
 }
 
 nav ul li:last-child {
-	padding-right: 4rem;
+	padding-right: 12rem;
 }
 
 nav ul li a {
 	text-decoration: none;
-	color: darkslategrey;
+	color: var(--pine-tree);
 	text-transform: capitalize;
-	font-weight: 900;
+	font-size: 1.8rem;
+	font-weight: 500;
 	letter-spacing: 0.1rem;
 	transition: color 300ms;
 }
@@ -59,88 +71,192 @@ nav ul li a:hover {
 	color: rgb(167, 250, 43);
 }
 
-.logo {
-	padding-left: 4rem;
-}
-
 main {
-	background-color: pink;
+	background-color: var(--light-blue);
 	width: 100%;
-	margin-top: 6rem;
-	display: grid;
-	grid-template-rows: 93vh repeat(3, 100vh) 40vh;
-	grid-template-areas:
-		"hero"
-		"features"
-		"video"
-		"pricing"
-		"contact";
+	margin-top: 5.4rem;
+	padding: 0 2rem;
 }
 
-@media only screen and (max-width: 414px) {
-	nav {
-		height: 9rem;
-		justify-content: center;
+@media only screen and (max-width: 1060px) {
+	nav ul li {
+		padding: 2rem;
 	}
 
-	main {
-		margin-top: 9rem;
+	nav ul li:last-child {
+		padding-right: 4rem;
 	}
 
 	.logo {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 0;
+		padding-left: 4rem;
+	}
+}
+
+@media only screen and (max-width: 505px) {
+	nav {
+		height: 9rem;
+		flex-direction: row;
 	}
 
-	nav ul li {
+	main {
+		padding-top: 9rem;
+	}
+
+	.logo {
 		padding: 0;
+		margin: 0 auto;
+	}
+
+	nav ul {
+		width: 100%;
+		justify-content: center;
 	}
 	
+	nav ul li {
+		padding: 0 1.2rem;
+	}
+
+	nav ul li:last-child {
+		padding-right: 0;
+	}
 }
-
-
 
 .hero {
-	grid-area: hero;
-	display: flex;
-}
-
-.hero-container {
+	height: calc(100vh - 5.4rem);
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
 }
 
-.hero-image img{
-	width: 100%;
-	height: 40rem;
-	object-fit: contain;
-	
-}
-
-.columns {
-	border: 4px solid black;
+.hero-content {
 	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 6rem;
 }
 
-/* @media only screen and (max-width:767px) { 
-	.hero-container {
-		flex-flow: row wrap;
-	}
 
-	.hero-image {
-		display: block;
+
+.hero-img {
+	width: 50%;
+	display: flex;
+	padding: 4rem 6rem 10rem 2rem;
+}
+
+.hero-img img {
+	object-fit: contain;
+	/* prevent image disappearance */
+}
+
+hr {
+	width: 30%;
+	height: 0.6rem;
+	background-color: #EE795E;
+	border: none;
+}
+
+.title {
+	font-size: 3rem;
+	font-weight: 500;
+}
+
+.title-span {
+	font-size: 6rem;
+	font-weight: bold;
+	color: #A2D729;
+}
+
+.title-sub {
+	font-size: 2rem;
+}
+
+/* From uiverse.io by @alexruix */
+.hero-form-input {
+  display: flex;
+  align-items: center;
+	padding-top: 1rem;
+}
+
+.hero-email-input {
+  min-height: 4rem;
+  max-width: 20rem;
+  padding: 0 1rem;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #5C80BC;
+  border-radius: 6px 0 0 6px;
+  background-color: transparent;
+}
+
+.hero-form-submit {
+  min-height: 4rem;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #5C80BC;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+
+.hero-form-submit:hover {
+  background-color: #5e5dcd;
+}
+
+.hero-email-input:focus, .hero-email-input:focus-visible {
+  border-color: #3898EC;
+  outline: none;
+}
+
+
+@media only screen and (max-width: 800px){
+  
+  .hero {
+    flex-direction: column;  
+  }
+  
+  .hero-content {
+    width: 100%;
+    min-height: 20rem;
+  }
+
+	.hero-img {
 		order: -1;
 		width: 100%;
+		height: auto;
+		padding: 0;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 3rem;
 	}
 
-	.hero-image img {
-		height: 10rem;
+	hr {
+		display: none;
 	}
-} */
+}
+
+@media only screen and (max-width: 515px) {
+	.hero-img {
+		height: 30%;
+	}
+
+	.hero-img img {
+		height: 100%;
+	}
+
+	.hero-content {
+		padding: 0;
+		padding-top: 4rem;
+		text-align: center;
+	}
+
+	.hero-form {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	
+}
