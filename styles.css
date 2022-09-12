@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	/* 1rem = 10px, 62.5% of 16px browser font size is 10px*/
+	font-size: 62.5%;
+}
+
+body {
+	/* 16px */
+	font-size: 1.6rem;
+	font-family: 'Open Sans', sans-serif;
+}
+
+header {
+	position: fixed;
+	top: 0;
+}
+
+nav {
+	position: fixed;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 6rem;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+}
+
+nav ul li {
+	padding: 2rem;
+}
+
+nav ul li:last-child {
+	padding-right: 4rem;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: darkslategrey;
+	text-transform: capitalize;
+	font-weight: 900;
+	letter-spacing: 0.1rem;
+	transition: color 300ms;
+}
+
+nav ul li a:hover {
+	cursor: pointer;
+	color: rgb(167, 250, 43);
+}
+
+.logo {
+	padding-left: 4rem;
+}
+
+main {
+	background-color: pink;
+	width: 100%;
+	margin-top: 6rem;
+	display: grid;
+	grid-template-rows: 93vh repeat(3, 100vh) 40vh;
+	grid-template-areas:
+		"hero"
+		"features"
+		"video"
+		"pricing"
+		"contact";
+}
+
+@media only screen and (max-width: 414px) {
+	nav {
+		height: 9rem;
+		justify-content: center;
+	}
+
+	main {
+		margin-top: 9rem;
+	}
+
+	.logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+	}
+
+	nav ul li {
+		padding: 0;
+	}
+	
+}
+
+
+
+.hero {
+	grid-area: hero;
+	display: flex;
+}
+
+.hero-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.hero-image img{
+	width: 100%;
+	height: 40rem;
+	object-fit: contain;
+	
+}
+
+.columns {
+	border: 4px solid black;
+	width: 50%;
+}
+
+/* @media only screen and (max-width:767px) { 
+	.hero-container {
+		flex-flow: row wrap;
+	}
+
+	.hero-image {
+		display: block;
+		order: -1;
+		width: 100%;
+	}
+
+	.hero-image img {
+		height: 10rem;
+	}
+} */
